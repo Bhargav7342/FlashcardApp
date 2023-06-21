@@ -15,6 +15,11 @@ public partial class UpskilldatabaseContext : DbContext
     {
     }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+      => optionsBuilder.UseSqlServer("Server=tcp:cibi-server.database.windows.net,1433;Initial Catalog=upskilldatabase;Persist Security Info=False;User ID=cibi619;Password=Cibi@619;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+
+
+
     public virtual DbSet<FlashcardDetail> FlashcardDetails { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
