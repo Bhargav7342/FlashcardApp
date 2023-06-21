@@ -21,10 +21,10 @@ public partial class UpskilldatabaseContext : DbContext
     {
         modelBuilder.Entity<FlashcardDetail>(entity =>
         {
-            entity.HasNoKey();
+            entity.HasKey(e => e.Id).HasName("PK__Flashcar__3214EC07F0D0D950");
 
-            entity.Property(e => e.Answer).IsUnicode(false);
             entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
+            entity.Property(e => e.Answer).IsUnicode(false);
             entity.Property(e => e.Question).IsUnicode(false);
         });
 
