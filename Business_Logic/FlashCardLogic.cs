@@ -40,5 +40,18 @@ namespace Business_Logic
             }
             return Mapper.Map(card);
         }
+
+        public Flashcards GetFlashcardsByID(Guid Id)
+        {
+            var c = (from cards in repo.GetAllFlashCards()
+                     where cards.Id == Id
+                     select cards).FirstOrDefault();
+            if (c != null)
+            {
+                return Mapper.Map(c);
+            }
+            else
+                return null;
+        }
     }
 }

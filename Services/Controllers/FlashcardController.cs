@@ -92,5 +92,23 @@ namespace Services.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("GetCardById")]
+
+        public IActionResult GetCard([FromHeader]Guid id)
+        {
+            try
+            {
+                var res=logic.GetFlashcardsByID(id);
+                if(res!=null)
+                    return Ok(res);
+                else
+                { return BadRequest(); }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

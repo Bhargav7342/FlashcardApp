@@ -13,5 +13,6 @@ namespace Business_Logic
         Flashcards UpdateFlashCard(Flashcards flashcards);
         Flashcards DeleteFlashCard(Guid Id);
         IEnumerable<Flashcards> GetFlashcards();
+        Flashcards GetFlashcardsByID(Guid Id);
     }
 }
